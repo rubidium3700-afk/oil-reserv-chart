@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2025 Oil Reserves Comparison of China's Three Major Oil Companies</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            padding: 30px;
+            background-color: #f8f9fa;
+        }
+        .chart-box {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #2d3436;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-box">
+        <h1>The crude oil reserves of the three major oil companies in 2025</h1>
+        <canvas id="oilChart" width="800" height="500"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('oilChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'PETROCHINA',
+                    'SINOPEC',
+                    'CNOOC'
+                ],
+                datasets: [{
+                    label: 'Crude Oil Reserves (Million Barrels)',
+                    data: [6049, 2074, 5802.4],
+                    backgroundColor: ['#4285F4', '#34A853', '#EA4335'],
+                    borderWidth: 1,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'top',
+                        color: '#333',
+                        font: { weight: 'bold', size: 14 }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Million Barrels'
+                        }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
